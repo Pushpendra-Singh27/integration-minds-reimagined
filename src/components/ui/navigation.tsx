@@ -8,12 +8,13 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "Training", href: "#training" },
-    { name: "Consulting", href: "#consulting" },
-    { name: "HireMinds", href: "#hireminds" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "Training", href: "/training" },
+    { name: "Consulting", href: "/consulting" },
+    { name: "HireMinds", href: "/hireminds" },
+    { name: "Cloud Labs", href: "/cloud-labs" },
+    { name: "Discover Us", href: "/discover-us" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -35,7 +36,7 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                className="text-foreground hover:text-primary transition-colors duration-200 font-medium hover-glow"
               >
                 {item.name}
               </a>

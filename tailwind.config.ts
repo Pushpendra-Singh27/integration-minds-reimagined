@@ -83,7 +83,8 @@ export default {
 				'card': 'var(--shadow-card)'
 			},
 			transitionTimingFunction: {
-				'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+				'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+				'elastic': 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
 			},
 			keyframes: {
 				'accordion-down': {
@@ -131,6 +132,22 @@ export default {
 						opacity: '1',
 						transform: 'translateX(0)'
 					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
+				},
+				'spin-slow': {
+					from: {
+						transform: 'rotate(0deg)'
+					},
+					to: {
+						transform: 'rotate(360deg)'
+					}
 				}
 			},
 			animation: {
@@ -138,7 +155,11 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in-up': 'fade-in-up 0.6s ease-out',
 				'scale-in': 'scale-in 0.5s ease-out',
-				'slide-in-right': 'slide-in-right 0.6s ease-out'
+				'slide-in-right': 'slide-in-right 0.6s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'spin-slow': 'spin-slow 20s linear infinite',
+				'bounce': 'bounce 2s infinite',
+				'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
 			}
 		}
 	},
