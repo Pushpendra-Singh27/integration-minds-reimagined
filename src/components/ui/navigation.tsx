@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
-import integrationMindsLogo from "/lovable-uploads/62edf30a-52b8-4ba9-87dc-cf1e4a84225d.png";
+import integrationMindsLogo from "@/assets/Logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);

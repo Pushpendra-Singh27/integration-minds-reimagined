@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from "lucide-react";
-import integrationMindsLogo from "/lovable-uploads/62edf30a-52b8-4ba9-87dc-cf1e4a84225d.png";
+import integrationMindsLogo from "@/assets/Logo.png";
 
 const Footer = () => {
   const quickLinks = [

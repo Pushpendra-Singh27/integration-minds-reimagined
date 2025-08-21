@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import heroBackground from "@/assets/hero-background.jpg";
-import tdSynnexPartnership from "/lovable-uploads/23b84b0e-20f4-4672-a5ff-62377a53e4a5.png";
-import ibmPartnership from "/lovable-uploads/315312b4-8a95-4024-a6fa-2035a79c0179.png";
+import partnership1 from "@/assets/Partnership1.png";
+import partnership2 from "@/assets/Partnership2.png";
 
 const HeroSection = () => {
   return (
@@ -57,8 +57,8 @@ const HeroSection = () => {
             {/* TD SYNNEX Partnership */}
             <div className="glass-card rounded-lg p-6 partnership-badge hover-glow">
               <img 
-                src={tdSynnexPartnership} 
-                alt="TD SYNNEX Partnership" 
+                src={partnership1} 
+                alt="Partnership 1" 
                 className="h-20 w-auto mx-auto"
               />
             </div>
@@ -66,8 +66,8 @@ const HeroSection = () => {
             {/* IBM Partnership */}
             <div className="glass-card rounded-lg p-6 partnership-badge hover-glow">
               <img 
-                src={ibmPartnership} 
-                alt="IBM Business Partner" 
+                src={partnership2} 
+                alt="Partnership 2" 
                 className="h-20 w-auto mx-auto"
               />
             </div>
