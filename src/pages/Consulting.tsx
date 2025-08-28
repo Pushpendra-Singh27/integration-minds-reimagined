@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Database, Shield, Cloud, Cog, Server, Lock, Layers, Monitor } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Database, Shield, Cloud, Cog, Server, Lock, Layers, Monitor, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -9,49 +10,64 @@ const Consulting = () => {
       title: "Data & Analytics",
       description: "Transform your data into actionable insights with advanced analytics solutions",
       icon: Database,
-      gradient: "from-primary to-primary-glow"
+      gradient: "from-primary to-primary-glow",
+      slug: "/consulting/data-analytics",
     },
     {
       title: "DevOps & MLOps",
       description: "Streamline development and ML workflows with automation and best practices",
       icon: Cog,
-      gradient: "from-secondary to-secondary-light"
+      gradient: "from-secondary to-secondary-light",
+      slug: "/consulting/devops-mlops",
     },
     {
       title: "Multi Cloud",
       description: "Leverage multiple cloud platforms for optimal performance and cost efficiency",
       icon: Cloud,
-      gradient: "from-primary-glow to-secondary"
+      gradient: "from-primary-glow to-secondary",
+      slug: "/consulting/multi-cloud",
     },
     {
       title: "CyberSecurity",
       description: "Protect your digital assets with comprehensive security solutions",
       icon: Shield,
-      gradient: "from-secondary to-primary"
+      gradient: "from-secondary to-primary",
+      slug: "/consulting/cyber-security",
     },
     {
       title: "Mainframes & IBM PowerSystems",
       description: "Modernize legacy systems while maintaining enterprise reliability",
       icon: Server,
-      gradient: "from-primary to-secondary-light"
+      gradient: "from-primary to-secondary-light",
+      slug: "/consulting/mainframes-ibm-powersystems",
     },
     {
       title: "Blockchain",
       description: "Implement secure, decentralized solutions for your business needs",
       icon: Lock,
-      gradient: "from-secondary-light to-primary-glow"
+      gradient: "from-secondary-light to-primary-glow",
+      slug: "/consulting/blockchain",
     },
     {
       title: "Application Modernization",
       description: "Transform legacy applications into modern, scalable solutions",
       icon: Layers,
-      gradient: "from-primary-glow to-secondary"
+      gradient: "from-primary-glow to-secondary",
+      slug: "/consulting/application-modernization",
     },
     {
       title: "ITSM-ITOM-ITAM",
       description: "Optimize IT service management and operations for better efficiency",
       icon: Monitor,
-      gradient: "from-secondary to-primary-glow"
+      gradient: "from-secondary to-primary-glow",
+      slug: "/consulting/itsm-itom-itam",
+    },
+    {
+      title: "Experiences",
+      description: "Explore our hands-on experiences and solution accelerators across domains",
+      icon: Award,
+      gradient: "from-primary to-secondary",
+      slug: "/consulting/experiences",
     }
   ];
 
@@ -132,8 +148,8 @@ const Consulting = () => {
                     <CardDescription className="text-background/70 mb-4">
                       {service.description}
                     </CardDescription>
-                    <Button variant="ghost" className="w-full text-background hover:bg-background/20 group-hover:bg-secondary/20">
-                      Learn More
+                    <Button asChild variant="ghost" className="w-full text-background hover:bg-background/20 group-hover:bg-secondary/20">
+                      <Link to={service.slug}>Learn More</Link>
                     </Button>
                   </CardContent>
                 </Card>

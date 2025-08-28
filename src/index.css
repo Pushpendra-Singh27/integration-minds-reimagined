@@ -193,6 +193,24 @@ All colors MUST be HSL.
     background-size: cover;
   }
 
+  /* Animated gradient background for hero */
+  .animated-hero-bg {
+    background: linear-gradient(
+      120deg,
+      hsl(var(--primary) / 0.7),
+      hsl(var(--secondary) / 0.6),
+      hsl(var(--primary-glow) / 0.7)
+    );
+    background-size: 200% 200%;
+    animation: gradientShift 18s ease-in-out infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
   /* Enhanced hover effects */
   .hover-glow {
     transition: var(--transition-smooth);
