@@ -1,10 +1,37 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { BookOpen, Award, Users, Target, ChevronRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import ContactModal from "@/components/ui/contact-modal";
 
 const Training = () => {
+  const [showContactPage, setShowContactPage] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState<string>("");
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleIBMCourseClick = (courseTitle: string) => {
+    setSelectedCourse(courseTitle);
+    setIsAnimating(true);
+    
+    // Immediately show contact page without waiting for scroll
+    setShowContactPage(true);
+    
+    // Scroll to top with animation
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Reset animation state after scroll completes
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 800);
+  };
+
+  const handleBackToTraining = () => {
+    setShowContactPage(false);
+    setSelectedCourse("");
+  };
+
   // Full list from integrationminds.com/training
   const technicalCourses: { title: string; slug: string }[] = [
     { title: "S/W & H/W Fundamental Courses", slug: "sw-hw-fundamentals" },
@@ -91,8 +118,205 @@ const Training = () => {
     phones: ["+91-97315 72612", "+91-90360 20999"],
   };
 
+  // If showing contact page, render only the contact page
+  if (showContactPage) {
+    return (
+      <div className="min-h-screen bg-black text-white">
+        {/* Navigation Bar */}
+        <div className="bg-black border-b border-gray-800 py-4">
+          <div className="container mx-auto px-4 flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <Button 
+                onClick={handleBackToTraining}
+                variant="ghost" 
+                className="text-white hover:text-primary"
+              >
+                ← Back to Training
+              </Button>
+            </div>
+            <h1 className="text-xl font-semibold text-white">Contact Us</h1>
+          </div>
+        </div>
+
+        {/* Contact Form */}
+        <div className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Contact Us
+              </h2>
+              <div className="w-16 h-0.5 bg-primary mx-auto mb-6"></div>
+              <p className="text-primary text-xl">
+                We are here for questions or consulting
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <form className="space-y-6">
+                {/* Full Name and Company Name */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="fullName" className="text-sm font-medium text-white">
+                      Full Name *
+                    </label>
+                    <input
+                      id="fullName"
+                      name="fullName"
+                      required
+                      className="w-full h-11 px-3 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder:text-gray-400 focus:border-primary focus:outline-none"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="companyName" className="text-sm font-medium text-white">
+                      Company Name *
+                    </label>
+                    <input
+                      id="companyName"
+                      name="companyName"
+                      required
+                      className="w-full h-11 px-3 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder:text-gray-400 focus:border-primary focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                {/* Email and Company Email */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-white">
+                      Email *
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      className="w-full h-11 px-3 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder:text-gray-400 focus:border-primary focus:outline-none"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="companyEmail" className="text-sm font-medium text-white">
+                      Company Email *
+                    </label>
+                    <input
+                      id="companyEmail"
+                      name="companyEmail"
+                      type="email"
+                      required
+                      className="w-full h-11 px-3 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder:text-gray-400 focus:border-primary focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                {/* Phone and Country */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-sm font-medium text-white">
+                      Phone
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      placeholder="Add your name"
+                      className="w-full h-11 px-3 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder:text-gray-400 focus:border-primary focus:outline-none"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="country" className="text-sm font-medium text-white">
+                      Country
+                    </label>
+                    <input
+                      id="country"
+                      name="country"
+                      className="w-full h-11 px-3 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder:text-gray-400 focus:border-primary focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                {/* Number of Attendees and Course Name */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="attendees" className="text-sm font-medium text-white">
+                      Number of Attendees
+                    </label>
+                    <select
+                      id="attendees"
+                      name="attendees"
+                      className="w-full h-11 px-3 py-2 border border-gray-600 bg-transparent rounded-md text-sm text-white focus:border-primary focus:outline-none"
+                    >
+                      <option value="" className="bg-black">Choose an option</option>
+                      <option value="1-5" className="bg-black">1-5 people</option>
+                      <option value="6-10" className="bg-black">6-10 people</option>
+                      <option value="11-15" className="bg-black">11-15 people</option>
+                      <option value="16-20" className="bg-black">16-20 people</option>
+                      <option value="20+" className="bg-black">20+ people</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="courseName" className="text-sm font-medium text-white">
+                      Course Name
+                    </label>
+                    <input
+                      id="courseName"
+                      name="courseName"
+                      value={selectedCourse}
+                      readOnly
+                      className="w-full h-11 px-3 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder:text-gray-400 focus:border-primary focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                {/* Checkboxes */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <label className="flex items-center space-x-2 text-sm text-white">
+                    <input
+                      type="checkbox"
+                      name="pricingCertification"
+                      className="w-4 h-4 text-primary bg-transparent border-gray-600 rounded focus:ring-primary"
+                    />
+                    <span>Yes, I do require Pricing for Certification Exam.</span>
+                  </label>
+                  <label className="flex items-center space-x-2 text-sm text-white">
+                    <input
+                      type="checkbox"
+                      name="noPricingCertification"
+                      className="w-4 h-4 text-primary bg-transparent border-gray-600 rounded focus:ring-primary"
+                    />
+                    <span>No, I do not require Pricing for Certification Exam.</span>
+                  </label>
+                </div>
+
+                {/* Message */}
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium text-white">
+                    Leave us a message...
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    className="w-full px-3 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder:text-gray-400 focus:border-primary focus:outline-none resize-none"
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <div className="text-center">
+                  <Button
+                    type="submit"
+                    className="bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-8"
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen">
+    <div className={`min-h-screen ${isAnimating ? 'pointer-events-none' : ''}`}>
       {/* Hero Section with Animated Background Image */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
@@ -269,8 +493,12 @@ const Training = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <Button asChild variant="ghost" className="w-full">
-                      <Link to={`/training/${item.slug}`}>Open <ChevronRight className="ml-2 h-4 w-4" /></Link>
+                    <Button 
+                      onClick={() => handleIBMCourseClick(item.title)}
+                      variant="ghost" 
+                      className="w-full"
+                    >
+                      Contact Us <ChevronRight className="ml-2 h-4 w-4" />
                     </Button>
                   </CardContent>
                 </Card>
@@ -407,13 +635,14 @@ const Training = () => {
         </div>
       </section>
 
-      {/* Contact and Quick Links */}
+
+      {/* Quick Links */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
             <Card>
               <CardHeader>
-                <CardTitle>Contact</CardTitle>
+                <CardTitle>Contact Information</CardTitle>
                 <CardDescription>For inquiries and enrollment</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
@@ -493,6 +722,7 @@ const Training = () => {
           </motion.div>
         </div>
       </section>
+
     </div>
   );
 };

@@ -32,6 +32,83 @@ const DevOpsMLOps = () => {
           </Card>
         </div>
       </section>
+
+      {/* Our offerings */}
+      <section className="py-12 bg-foreground text-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-secondary-light">Our offerings</h2>
+          
+          {/* DevOps Section */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-center mb-6">DevOps</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                "Build CI/CD Pipeline",
+                "Continuous Testing",
+                "DevOps for Legacy to Cloud",
+                "People to Process Transformation",
+                "To Setup Platform",
+                "To Setup Center of Excellence",
+                "DevSecOps: Shift Left"
+              ].map((item) => (
+                <Card key={item} className="bg-background text-foreground border border-foreground/20 shadow-sm">
+                  <CardContent className="py-6 text-center font-medium">{item}</CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* MLOps Section */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-center mb-6">MLOps</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                "Model Development",
+                "Model Retraining",
+                "Model Validation",
+                "Model Deployment"
+              ].map((item) => (
+                <Card key={item} className="bg-background text-foreground border border-foreground/20 shadow-sm">
+                  <CardContent className="py-6 text-center font-medium">{item}</CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SME Platforms */}
+      <section className="py-12 bg-foreground text-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-secondary-light">
+            Leverage our Subject Matter Experts in Multi Platforms
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              "Chef",
+              "Puppet",
+              "Ansible",
+              "Pivotal",
+              "Jenkins",
+              "Terraform",
+              "GitHub",
+              "Docker",
+              "Kubernetes",
+              "Azure MLOps",
+              "GCP MLOps",
+              "AWS SageMaker",
+              "Metaflow",
+              "Data Version Control",
+              "Pachyderm & Seldon",
+              "KubeFlow & MLFlow"
+            ].map((item) => (
+              <Card key={item} className="bg-background text-foreground border border-foreground/20 shadow-sm">
+                <CardContent className="py-6 text-center font-medium">{item}</CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

@@ -32,6 +32,59 @@ const Blockchain = () => {
           </Card>
         </div>
       </section>
+
+      {/* Our offerings */}
+      <section className="py-12 bg-foreground text-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-secondary-light">Our offerings</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              "Blockchain Strategy & Advisory",
+              "Blockchain POC",
+              "Blockchain Platform Engineering",
+              "Smart Contract Solutions",
+              "Blockchain Security",
+              "Blockchain Training",
+              "IBM Blockchain Trusted Identity",
+              "Cryptocurrencies",
+              "Distributed Applications",
+              "Public And Private Blockchains Development",
+              "Blockchain-as-a-Service"
+            ].map((item) => (
+              <Card key={item} className="bg-background text-foreground border border-foreground/20 shadow-sm">
+                <CardContent className="py-6 text-center font-medium">{item}</CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SME Platforms */}
+      <section className="py-12 bg-foreground text-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-secondary-light">
+            Leverage our Subject Matter Experts in Multi Platforms
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              "ETHEREUM",
+              "HYPERLEDGER FABRIC",
+              "R3, Ripple",
+              "CORDA",
+              "Microsoft Azure Blockchain",
+              "Oracle Blockchain",
+              "IBM Blockchain",
+              "Parity, Multichain",
+              "Geth",
+              "Solc"
+            ].map((item) => (
+              <Card key={item} className="bg-background text-foreground border border-foreground/20 shadow-sm">
+                <CardContent className="py-6 text-center font-medium">{item}</CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

@@ -32,6 +32,59 @@ const ApplicationModernization = () => {
           </Card>
         </div>
       </section>
+
+      {/* Our offerings */}
+      <section className="py-12 bg-foreground text-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-secondary-light">Our offerings</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              "Container Architecture",
+              "Microservices Architecture",
+              "Application Rearchitecture",
+              "Application Replatforming",
+              "Legacy Migration",
+              "Product Engineering",
+              "API Management",
+              "Middleware Integration",
+              "Cloud Integration",
+              "Enterprise Web Solution",
+              "Site Reliability Engineering"
+            ].map((item) => (
+              <Card key={item} className="bg-background text-foreground border border-foreground/20 shadow-sm">
+                <CardContent className="py-6 text-center font-medium">{item}</CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SME Platforms */}
+      <section className="py-12 bg-foreground text-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-secondary-light">
+            Leverage our Subject Matter Experts in Multi Platforms
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              "Mainframe migration",
+              "Containers",
+              "Microservices",
+              "DevOps DevSecOps",
+              "Test Automation",
+              "TDD & BDD",
+              "Middleware Tools",
+              "Multi Cloud migration",
+              "API Tools",
+              "Application Performance Monitoring tools"
+            ].map((item) => (
+              <Card key={item} className="bg-background text-foreground border border-foreground/20 shadow-sm">
+                <CardContent className="py-6 text-center font-medium">{item}</CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

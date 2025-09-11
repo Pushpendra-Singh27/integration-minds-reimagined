@@ -616,6 +616,34 @@ export const COURSES: Record<string, CourseContent> = {
     title: "SysML & MSBE",
     summary:
       "Model-based systems engineering and SysML notation for complex systems design.",
+    tables: [
+      {
+        caption: "SysML & MSBE Course Offerings",
+        columns: ["Course Name", "Duration"],
+        rows: [
+          ["Advanced SysML Training | Creating SysML Models", "3 days"],
+          ["Archimate Training", "1 day"],
+          ["BPMN Training (Business Process Management Notation Training)", "3 days"],
+          ["Digital Engineering Training (MBSE Fundamentals for DoD)", "3 days"],
+          ["Hands-On MBSE and SysML Training Workshop (Creating SysML Diagrams for a System of Systems (SoS) Workshop)", "4 days"],
+          ["Introduction to Model Based Systems Engineering (MBSE)", "2 days"],
+          ["MBSE and Digital Engineering Workshop", "2 days"],
+          ["MBSE Training Crash Course", "4 days"],
+          ["MBSE Training (Model-Based Systems Engineering Training)", "3 days"],
+          ["Model Based Requirements Engineering - MBRE", "4 days"],
+          ["Model Based Testing Training", "3 days"],
+          ["Model Based Testing | Model Based Systems Engineering (MBSE)", "3 days"],
+          ["Pattern Engineering With SysML", "3 days"],
+          ["Requirements Engineering Workshop with Use Cases", "4 days"],
+          ["SysML Training Crash Course", "4 days"],
+          ["SysML Training(Systems Modeling Language Training)", "3 days"],
+          ["Systems Architecture Training | Applied System Architecture with MBSE and SysML", "2 days"],
+          ["UML Training - Unified Modeling Language Certification", "1 day"],
+          ["IBM DOORS", "2 days"],
+          ["IBM Rhapsody", "4 days"],
+        ],
+      },
+    ],
   },
   "software-testing-courses": {
     title: "Software Testing Courses",
@@ -631,6 +659,30 @@ export const COURSES: Record<string, CourseContent> = {
     title: "Mobile App Dev Courses",
     summary:
       "Native and cross-platform app development patterns and tooling.",
+    tables: [
+      {
+        caption: "Integration Minds Course offerings in Mobile App Development",
+        columns: ["#No", "Course Name", "Duration", "Batch Size", "Mode of training"],
+        rows: [
+          ["IMMO1", "Android App Development Training", "3 days", "", ""],
+          ["IMMO2", "Blackberry Mobile Applications Development", "3 days", "", ""],
+          ["IMMO3", "Blackberry Tablet Application Development Training", "4 days", "", ""],
+          ["IMMO4", "HTML5 Training", "4 days", "", ""],
+          ["IMMO5", "iOS Mobile App Development Crash Course", "3 days", "", ""],
+          ["IMMO6", "iOS Administration Training", "4 days", "", ""],
+          ["IMMO7", "jQuery Mobile Training", "3 days", "", ""],
+          ["IMMO10", "Mobile App Ethical Hacking Training | Mobile Penetration Testing", "3 days", "1 to 15 pax", "LIVE Instructor Led ONLINE or CLASSROOM"],
+          ["IMMO11", "Mobile App Security Training | Mobile Applications and Device", "3 days", "", ""],
+          ["IMMO12", "Mobile Application Development Crash Course", "4 days", "", ""],
+          ["IMMO13", "Mobile Application Development Workshop", "2 days", "", ""],
+          ["IMMO14", "Mobile Applications Business Analysis", "3 days", "", ""],
+          ["IMMO15", "Python Programming Bootcamp", "3 days", "", ""],
+          ["IMMO16", "Titanium Training - Building Native Apps", "2 days", "", ""],
+          ["IMMO17", "Windows Phone Development Training", "3 days", "", ""],
+          ["IMMO18", "Blackberry Mobile Applications Development", "3 days", "", ""],
+        ],
+      },
+    ],
   },
 
   // Financial
