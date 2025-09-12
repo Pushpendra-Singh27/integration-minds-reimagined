@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
@@ -6,6 +6,30 @@ import integrationMindsLogo from "@/assets/Logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < 10) {
+        // Always show navbar at the top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past 100px
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+    return () => window.removeEventListener('scroll', controlNavbar);
+  }, [lastScrollY]);
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -14,11 +38,13 @@ const Navigation = () => {
     { name: "HireMinds", href: "/hireminds" },
     { name: "Cloud Labs", href: "/cloud-labs" },
     { name: "Discover Us", href: "/discover-us" },
-    { name: "Contact", href: "/#contact" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-md border-b border-border z-50">
+    <nav className={`fixed top-0 w-full bg-background/95 backdrop-blur-md border-b border-border z-50 transition-transform duration-300 ease-in-out ${
+      isVisible ? 'translate-y-0' : '-translate-y-full'
+    }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -41,9 +67,11 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
-            <Button variant="default" size="sm" className="bg-gradient-primary hover:shadow-glow">
-              Enroll Now
-            </Button>
+            <a href="/contact">
+              <Button variant="default" size="sm" className="bg-gradient-primary hover:shadow-glow">
+                Enroll Now
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Navigation */}
@@ -65,13 +93,14 @@ const Navigation = () => {
                     {item.name}
                   </a>
                 ))}
-                <Button 
-                  variant="default" 
-                  className="mt-4 bg-gradient-primary hover:shadow-glow"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Enroll Now
-                </Button>
+                <a href="/contact" onClick={() => setIsOpen(false)}>
+                  <Button 
+                    variant="default" 
+                    className="mt-4 bg-gradient-primary hover:shadow-glow"
+                  >
+                    Enroll Now
+                  </Button>
+                </a>
               </div>
             </SheetContent>
           </Sheet>

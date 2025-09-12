@@ -1,16 +1,42 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Shield, Lock, Eye, AlertTriangle, ArrowRight } from "lucide-react";
 
 const CyberSecurity = () => {
   return (
     <div className="min-h-screen">
-      <section className="relative py-20 overflow-hidden bg-gradient-subtle">
-        <div className="container mx-auto px-4">
-          <motion.div initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6 }}>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Cyber Security</h1>
-            <p className="text-lg text-muted-foreground max-w-3xl">
-              We help you keep your technology business protected and resilient. We prioritize prevention, minimize risk, and help control losses. We offer cybersecurity customized to your business context and act as a partner in your cyber-transformation journey.
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-primary/5 to-secondary/10">
+        {/* Animated Background */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-32 left-32 w-72 h-72 bg-gradient-secondary rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-32 right-32 w-96 h-96 bg-gradient-primary rounded-full blur-3xl animate-float"></div>
+          <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-gradient-hero rounded-full blur-2xl animate-bounce"></div>
+        </div>
+
+        <div className="container mx-auto px-4 z-10 text-center">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="flex justify-center mb-6">
+              <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center">
+                <Shield className="h-10 w-10 text-white" />
+              </div>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 hero-text-glow">
+              Cyber<span className="bg-gradient-secondary bg-clip-text text-transparent">Security</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+              Protect your digital assets with comprehensive security solutions that defend against evolving cyber threats
             </p>
+            <Button size="lg" className="bg-gradient-secondary hover:shadow-glow text-lg px-8 py-4">
+              Secure Your Business
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </motion.div>
         </div>
       </section>

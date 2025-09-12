@@ -9,6 +9,7 @@ import Consulting from "./pages/Consulting";
 import HireMinds from "./pages/HireMinds";
 import CloudLabs from "./pages/CloudLabs";
 import DiscoverUs from "./pages/DiscoverUs";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/ui/footer";
@@ -51,6 +52,7 @@ const App = () => (
             <Route path="/hireminds" element={<HireMinds />} />
             <Route path="/cloud-labs" element={<CloudLabs />} />
             <Route path="/discover-us" element={<DiscoverUs />} />
+            <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
